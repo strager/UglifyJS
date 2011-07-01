@@ -1,1 +1,1 @@
-(function(){function myEvaler(){eval("oogabooga")}var a={},foo=function(b,c,d){return c instanceof a}})()
+(function(){function myEvaler(){eval("ooga booga")}var a={},foo=function b(c,b,d){return b instanceof a}})()
