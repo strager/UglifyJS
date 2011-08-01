@@ -1,1 +1,1 @@
-(function(){function a(){}(function(){return new a(1,2,3)})()})()
+(function(){function a(){}out=new a(1,2,3)})()

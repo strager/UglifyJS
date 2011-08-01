@@ -22,21 +22,22 @@ var expectedDir = path.join(scriptsPath, "compress", "expected");
 
 function getTester(script) {
 	return function(test) {
+                var trailingWhitespace = /(\r?\n)+$/;
 		var testPath = path.join(testDir, script);
 		var expectedPath = path.join(expectedDir, script);
 		var content = fs.readFileSync(testPath, 'utf-8');
 		var outputCompress = compress(content);
 
 		// Check if the noncompressdata is larger or same size as the compressed data
-		test.ok(content.length >= outputCompress.length);
+		test.ok(content.length >= outputCompress.length, 'compressed output is larger than uncompressed data');
 
 		// Check that a recompress gives the same result
 		var outputReCompress = compress(content);
-		test.equal(outputCompress, outputReCompress);
+		test.equal(outputCompress, outputReCompress, 'recompression gives different results');
 
 		// Check if the compressed output is what is expected
 		var expected = fs.readFileSync(expectedPath, 'utf-8');
-		test.equal(outputCompress, expected.replace(/(\r?\n)+$/, ""));
+		test.equal(outputCompress, expected.replace(trailingWhitespace, ""), content.replace(trailingWhitespace, ""));
 
 		test.done();
 	};

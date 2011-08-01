@@ -1,0 +1,1 @@
+function q(){return q(function(){var x = asdf(); return x(x);}());}

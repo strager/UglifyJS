@@ -1,0 +1,13 @@
+(function() {
+        function one() {
+                alert('one');
+        }
+
+        (function() {
+                alert(two.toString());
+
+                function two() {
+                        one();
+                }
+        }());
+}());
