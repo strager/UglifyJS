@@ -14,6 +14,7 @@ function compress(code) {
 	ast = pro.ast_mangle(ast);
 	ast = pro.ast_squeeze(ast, {no_warnings: true, extra: true});
         ast = pro.ast_squeeze_more(ast);
+        ast = pro.ast_squeeze_closures(ast);
 	return pro.gen_code(ast);
 };
 
@@ -45,7 +46,7 @@ function getTester(script) {
 
 var tests = {};
 
-var scripts = fs.readdirSync(testDir);
+var scripts = fs.readdirSync(testDir).sort();
 for (var i in scripts) {
 	var script = scripts[i];
 	if (/\.js$/.test(script)) {

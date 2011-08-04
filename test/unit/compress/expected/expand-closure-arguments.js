@@ -1,0 +1,1 @@
+argz=function(){return arguments}()

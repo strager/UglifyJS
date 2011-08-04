@@ -1,0 +1,15 @@
+(function() {
+    (function() {
+        (function(a) {
+            return function(b, c, d) {
+                a(b, c, function() {
+                    return d;
+                });
+            };
+        })(function() {
+            return function(a, b, c) {
+                a.__defineGetter__(b, c);
+            };
+        }());
+    })();
+})(Object);
