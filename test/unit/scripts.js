@@ -15,6 +15,9 @@ function compress(code) {
 	ast = pro.ast_squeeze(ast, {no_warnings: true, extra: true});
         ast = pro.ast_squeeze_more(ast);
         ast = pro.ast_squeeze_closures(ast);
+        ast = pro.ast_mangle(ast);
+        ast = pro.ast_mangle(ast); // FOR GREAT GOOD!  (Some tests depend on mangle being called an odd number of times =\)
+        ast = pro.ast_squeeze(ast, {no_warnings: true});
 	return pro.gen_code(ast);
 };
 
