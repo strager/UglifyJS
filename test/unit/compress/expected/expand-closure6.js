@@ -1,1 +1,1 @@
-function(){function a(){};out=2}()
+(function(){function a(){}out=2})()
