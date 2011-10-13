@@ -13,5 +13,6 @@ function uglify(orig_code, options){
 
 uglify.parser = require("./lib/parse-js");
 uglify.uglify = require("./lib/process");
+uglify.inject = require("./lib/inject");
 
 module.exports = uglify
